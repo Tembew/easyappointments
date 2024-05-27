@@ -525,18 +525,23 @@ class Providers_model extends EA_Model
     ): void {
         // Validate the working plan exception data.
 
-        if (empty($working_plan_exception['start']) || empty($working_plan_exception['end'])) {
+        if (
+            !empty($working_plan_exception) &&
+            (empty($working_plan_exception['start']) || empty($working_plan_exception['end']))
+        ) {
             throw new InvalidArgumentException(
                 'Empty start and/or end time provided: ' . json_encode($working_plan_exception),
             );
         }
 
-        $start = date('H:i', strtotime($working_plan_exception['start']));
+        if (!empty($working_plan_exception['start']) && !empty($working_plan_exception['end'])) {
+            $start = date('H:i', strtotime($working_plan_exception['start']));
 
-        $end = date('H:i', strtotime($working_plan_exception['end']));
+            $end = date('H:i', strtotime($working_plan_exception['end']));
 
-        if ($start > $end) {
-            throw new InvalidArgumentException('Working plan exception start date must be before the end date.');
+            if ($start > $end) {
+                throw new InvalidArgumentException('Working plan exception start date must be before the end date.');
+            }
         }
 
         // Make sure the provider record exists.
@@ -761,6 +766,7 @@ class Providers_model extends EA_Model
             'is_private' => $provider['is_private'],
             'ldapDn' => $provider['ldap_dn'],
             'timezone' => $provider['timezone'],
+            'language' => $provider['language'],
         ];
 
         if (array_key_exists('services', $provider)) {
@@ -870,6 +876,10 @@ class Providers_model extends EA_Model
 
         if (array_key_exists('timezone', $provider)) {
             $decoded_resource['timezone'] = $provider['timezone'];
+        }
+
+        if (array_key_exists('language', $provider)) {
+            $decoded_resource['language'] = $provider['language'];
         }
 
         if (array_key_exists('services', $provider)) {

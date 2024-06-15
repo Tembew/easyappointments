@@ -459,7 +459,7 @@ $lang['default_language'] = 'Default Language';
 $lang['default_language_hint'] = 'Set the default language value that will be used for new records.';
 $lang['sync_method_prompt'] = 'Which sync method would you like to use?';
 $lang['caldav_server'] = 'CalDAV Server';
-$lang['caldav_connection_info_prompt'] = 'Please enter the connection information of the target CalDAV server.';
+$lang['caldav_connection_info_prompt'] = 'Please enter the connection information of the target CalDAV Calendar.';
 $lang['connect'] = 'Connect';
 $lang['ldap'] = 'LDAP';
 $lang['ldap_info'] = 'This integration enables you to connect to an existing LDAP server and automatically import users into Easy!Appointments and let them SSO with their directory password (username must match).';
@@ -481,4 +481,5 @@ $lang['at_least_one_field_required'] = 'At least one field must be set as requir
 $lang['customer_is_already_booked'] = 'This customer already has an appointment during the requested reservation period.';
 $lang['fields'] = 'Fields';
 $lang['invalid_credentials_provided'] = 'Invalid credentials provided, please try again.';
+$lang['calendar_url'] = 'Calendar URL';
 // End

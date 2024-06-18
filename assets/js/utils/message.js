@@ -105,6 +105,14 @@ window.App.Utils.Message = (function () {
             backdrop: 'static',
         });
 
+        $messageModal.on('shown.bs.modal', () => {
+            $messageModal
+                .find('.modal-footer button:last')
+                .removeClass('btn-outline-primary')
+                .addClass('btn-primary')
+                .focus();
+        });
+
         messageModal.show();
 
         $messageModal.css('z-index', '99999').next().css('z-index', '9999');

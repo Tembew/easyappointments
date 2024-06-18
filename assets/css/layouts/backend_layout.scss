@@ -397,8 +397,8 @@ body legend {
     border-radius: 0;
     font-weight: bold;
     color: #333;
-    text-shadow: 0 1px 0 #e6e6e6;
-    opacity: 0.7;
+    opacity: 0.75;
+    border: 1px solid #e6e6e6;
 }
 
 #calendar-page #calendar .fc-unavailability.fc-blocked-period {
@@ -406,8 +406,13 @@ body legend {
     text-shadow: none;
 }
 
+#calendar-page .fc-daygrid-day-top {
+    font-size: 11px;
+}
+
 #calendar-page .fc-event-time {
     font-weight: bold;
+    font-size: 11px;
 }
 
 #calendar-page .fc-event-title {
@@ -470,6 +475,7 @@ body legend {
     background-color: #4790ca;
     color: #333;
     min-height: 12px;
+    font-size: 11px;
 }
 
 #existing-customers-list {

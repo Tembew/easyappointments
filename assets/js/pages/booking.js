@@ -17,7 +17,6 @@
  * Old Name: FrontendBook
  */
 App.Pages.Booking = (function () {
-    const $cookieNoticeLink = $('.cc-link');
     const $selectDate = $('#select-date');
     const $selectService = $('#select-service');
     const $selectProvider = $('#select-provider');
@@ -83,10 +82,12 @@ App.Pages.Booking = (function () {
                 },
             });
 
+            const $cookieNoticeLink = $('.cc-link');
+
             $cookieNoticeLink.replaceWith(
                 $('<a/>', {
-                    'data-toggle': 'modal',
-                    'data-target': '#cookie-notice-modal',
+                    'data-bs-toggle': 'modal',
+                    'data-bs-target': '#cookie-notice-modal',
                     'href': '#',
                     'class': 'cc-link',
                     'text': $cookieNoticeLink.text(),
@@ -175,6 +176,7 @@ App.Pages.Booking = (function () {
         // If the manage mode is true, the appointment data should be loaded by default.
         if (manageMode) {
             applyAppointmentData(vars('appointment_data'), vars('provider_data'), vars('customer_data'));
+
             $('#wizard-frame-1')
                 .css({
                     'visibility': 'visible',
@@ -213,6 +215,14 @@ App.Pages.Booking = (function () {
                 (selectedServiceId && selectedProviderId) ||
                 (vars('available_services').length === 1 && vars('available_providers').length === 1)
             ) {
+                if (!selectedServiceId) {
+                    $selectService.val(vars('available_services')[0].id).trigger('change');
+                }
+
+                if (!selectedProviderId) {
+                    $selectProvider.val(vars('available_providers')[0].id).trigger('change');
+                }
+
                 $('.active-step').removeClass('active-step');
                 $('#step-2').addClass('active-step');
                 $('#wizard-frame-1').hide();

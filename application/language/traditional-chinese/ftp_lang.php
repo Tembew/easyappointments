@@ -37,24 +37,15 @@
  */
 defined('BASEPATH') or exit('No direct script access allowed');
 
-$lang['profiler_database'] = 'BASE DE DADOS';
-$lang['profiler_controller_info'] = 'CLASSE/MÉTODO';
-$lang['profiler_benchmarks'] = 'BENCHMARKS';
-$lang['profiler_queries'] = 'CONSULTAS';
-$lang['profiler_get_data'] = 'DADOS GET';
-$lang['profiler_post_data'] = 'DADOS POST';
-$lang['profiler_uri_string'] = 'STRING URI';
-$lang['profiler_memory_usage'] = 'USO DE MEMÓRIA';
-$lang['profiler_config'] = 'VARIÁVEIS DE CONFIGURAÇÃO';
-$lang['profiler_session_data'] = 'DADOS DE SESSÃO';
-$lang['profiler_headers'] = 'CABEÇALHOS HTTP';
-$lang['profiler_no_db'] = 'Driver da base de dados não está carregado atualmente';
-$lang['profiler_no_queries'] = 'Nenhuma consulta foi executada';
-$lang['profiler_no_post'] = 'Não existem dados POST';
-$lang['profiler_no_get'] = 'Não existem dados GET';
-$lang['profiler_no_uri'] = 'Não existem dados URI';
-$lang['profiler_no_memory'] = 'Uso de memória indisponível';
-$lang['profiler_no_profiles'] = 'Nenhum dado de perfil - todas as seções do Profiler foram desativadas.';
-$lang['profiler_section_hide'] = 'Esconder';
-$lang['profiler_section_show'] = 'Mostrar';
-$lang['profiler_seconds'] = 'segundos';
+$lang['ftp_no_connection'] = '無法找到有效的連線 ID。請確保您已連線後再執行任何檔案作業。';
+$lang['ftp_unable_to_connect'] = '無法使用提供的主機名稱連線到您的 FTP 伺服器。';
+$lang['ftp_unable_to_login'] = '無法登入您的 FTP 伺服器。請檢查您的使用者名稱和密碼。';
+$lang['ftp_unable_to_mkdir'] = '無法建立您指定的目錄。';
+$lang['ftp_unable_to_changedir'] = '無法切換目錄。';
+$lang['ftp_unable_to_chmod'] = '無法設定檔案權限。請檢查您的路徑。';
+$lang['ftp_unable_to_upload'] = '無法上傳指定的檔案。請檢查您的路徑。';
+$lang['ftp_unable_to_download'] = '無法下載指定的檔案。請檢查您的路徑。';
+$lang['ftp_no_source_file'] = '無法找到來源檔案。請檢查您的路徑。';
+$lang['ftp_unable_to_rename'] = '無法重新命名檔案。';
+$lang['ftp_unable_to_delete'] = '無法刪除檔案。';
+$lang['ftp_unable_to_move'] = '無法移動檔案。請確保目的地目錄存在。';

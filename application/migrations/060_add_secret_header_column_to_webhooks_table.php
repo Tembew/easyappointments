@@ -11,23 +11,24 @@
  * @since       v1.4.0
  * ---------------------------------------------------------------------------- */
 
-class Migration_Add_ldap_dn_column_to_users_table extends EA_Migration
+class Migration_Add_secret_header_column_to_webhooks_table extends EA_Migration
 {
     /**
      * Upgrade method.
      */
     public function up(): void
     {
-        if (!$this->db->field_exists('ldap_dn', 'users')) {
+        if (!$this->db->field_exists('secret_header', 'webhooks')) {
             $fields = [
-                'ldap_dn' => [
-                    'type' => 'TEXT',
-                    'null' => true,
-                    'after' => 'is_private',
+                'secret_header' => [
+                    'type' => 'VARCHAR',
+                    'constraint' => '256',
+                    'default' => 'X-Ea-Token',
+                    'after' => 'actions',
                 ],
             ];
 
-            $this->dbforge->add_column('users', $fields);
+            $this->dbforge->add_column('webhooks', $fields);
         }
     }
 
@@ -36,8 +37,8 @@ class Migration_Add_ldap_dn_column_to_users_table extends EA_Migration
      */
     public function down(): void
     {
-        if ($this->db->field_exists('ldap_dn', 'users')) {
-            $this->dbforge->drop_column('users', 'ldap_dn');
+        if ($this->db->field_exists('secret_header', 'webhooks')) {
+            $this->dbforge->drop_column('webhooks', 'secret_header');
         }
     }
 }

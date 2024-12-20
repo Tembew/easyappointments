@@ -78,7 +78,7 @@ class Email_messages
         string $appointment_link,
         string $recipient_email,
         string $ics_stream,
-        string $timezone = null,
+        ?string $timezone = null,
     ): void {
         $appointment_timezone = new DateTimeZone($provider['timezone']);
 
@@ -114,7 +114,7 @@ class Email_messages
 
         $php_mailer = $this->get_php_mailer($recipient_email, $subject, $html);
 
-        $php_mailer->addStringAttachment($ics_stream, 'invitation.ics', PHPMailer::ENCODING_BASE64, 'text/vcalendar');
+        $php_mailer->addStringAttachment($ics_stream, 'invitation.ics', PHPMailer::ENCODING_BASE64, 'text/calendar');
 
         $php_mailer->send();
     }
@@ -142,8 +142,8 @@ class Email_messages
         array $customer,
         array $settings,
         string $recipient_email,
-        string $reason = null,
-        string $timezone = null,
+        ?string $reason = null,
+        ?string $timezone = null,
     ): void {
         $appointment_timezone = new DateTimeZone($provider['timezone']);
 
@@ -222,9 +222,9 @@ class Email_messages
      * @throws Exception
      */
     private function get_php_mailer(
-        string $recipient_email = null,
-        string $subject = null,
-        string $html = null,
+        ?string $recipient_email = null,
+        ?string $subject = null,
+        ?string $html = null,
     ): PHPMailer {
         $php_mailer = new PHPMailer(true);
 

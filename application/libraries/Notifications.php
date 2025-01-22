@@ -92,6 +92,7 @@ class Notifications
                     $customer['email'],
                     $ics_stream,
                     $customer['timezone'],
+                    $send_customer,
                 );
             }
 

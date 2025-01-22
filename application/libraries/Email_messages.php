@@ -79,6 +79,7 @@ class Email_messages
         string $recipient_email,
         string $ics_stream,
         ?string $timezone = null,
+        ?bool $send_customer = null,
     ): void {
         $appointment_timezone = new DateTimeZone($provider['timezone']);
 
@@ -95,9 +96,11 @@ class Email_messages
             $appointment_end->setTimezone($custom_timezone);
             $appointment['end_datetime'] = $appointment_end->format('Y-m-d H:i:s');
         }
-
+        //Added ternary operator to select template
+$template = $send_customer === true ? 'emails/appointment_saved_email' : 'emails/provider_appointment_saved_email';
+        //Replaced hardcoded template path with $template variable
         $html = $this->CI->load->view(
-            'emails/appointment_saved_email',
+            $template,
             [
                 'subject' => $subject,
                 'message' => $message,

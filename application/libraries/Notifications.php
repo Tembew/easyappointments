@@ -81,6 +81,7 @@ class Notifications
                 $message = $manage_mode ? '' : lang('thank_you_for_appointment');
 
                 $this->CI->email_messages->send_appointment_saved(
+                    $send_customer,
                     $appointment,
                     $provider,
                     $service,
@@ -92,6 +93,7 @@ class Notifications
                     $customer['email'],
                     $ics_stream,
                     $customer['timezone'],
+                    $send_customer,
                 );
             }
 
@@ -108,6 +110,7 @@ class Notifications
                 $message = $manage_mode ? '' : lang('appointment_link_description');
 
                 $this->CI->email_messages->send_appointment_saved(
+                    $send_customer,
                     $appointment,
                     $provider,
                     $service,
@@ -136,6 +139,7 @@ class Notifications
                 $message = $manage_mode ? '' : lang('appointment_link_description');
 
                 $this->CI->email_messages->send_appointment_saved(
+                    $send_customer,
                     $appointment,
                     $provider,
                     $service,
